@@ -41,6 +41,6 @@ extension QuickMathView {
 
 struct QuickMathView_Previews: PreviewProvider {
     static var previews: some View {
-        QuickMathView(text: "x + 2 ^ (x+2)")
+        QuickMathView(text: "abs(3)")
     }
 }

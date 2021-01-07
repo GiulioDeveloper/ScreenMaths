@@ -22,6 +22,8 @@ struct TestKeyboard: View {
     
     var body: some View {
         LazyHGrid(rows: rows) {
+            
+            Group {
             Button(action: {
                 manager.add(key: .variable(Symbol("a", kind: "")))
             }) {
@@ -32,6 +34,20 @@ struct TestKeyboard: View {
                 manager.add(key: .variable(Symbol("b", kind: "")))
             }) {
                 Text("b")
+            }
+            
+            Button(action: {
+                manager.add(key: .digit(1))
+            }) {
+                Text("1")
+            }
+            
+            Button(action: {
+                manager.add(key: .digit(2))
+            }) {
+                Text("2")
+            }
+            
             }
             
             Button(action: {

@@ -29,7 +29,7 @@ public struct TypingDemo: View {
                 Text("Stampa")
             }
         }
-        .frame(width: 400, height: 400, alignment: .center)
+        .frame(width: 800, height: 800, alignment: .center)
     }
     
     public init() {}

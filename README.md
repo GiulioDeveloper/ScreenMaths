@@ -18,7 +18,8 @@ With SwiftyEquations you can:
 
 To try a simple possible implementation of these features, just check the demo folder, and see how they work!
 
-If you need some extra features, feel free to send your request in the github form.
+ ### Contribution
+If you have problems or you need extra features, feel free to send your request in the github form.
 
 # How it works
 
@@ -102,20 +103,20 @@ struct MathView_Previews: PreviewProvider {
 
 Once you linked an interactionManager to a MathView and linked it to a set (using interactionObject), you can edit it at runtime, or most probably let the user edit it. You should build an interface with buttons and numbers (like the ones in PhotoMath for example) and then link these buttons with the functions provided in the ButtonFunctions class. This class contains the foundamental functions to edit an RSet through an interaction manager, and you can personalize them as you need. Check the Demo Folder for an example of how to use it, here's what you'd get:
 
-![Video](https://i.ibb.co/VwD572Q/ezgif-com-video-to-gif.gif)
+![Video](https://i.ibb.co/ypBfnWf/ezgif-com-crop.gif)
 
 
 ### Customization
 
 All customization happens using environment keys. The easiest thing to customize is the scale, like follows:
 ```swift
-    MathView(text: "x ^ 2 + cos(3*x + cos(log(R_i , (2)/(3a / (4x))))) +y")
+    QuickMathView(text: "x ^ 2 + cos(3*x + cos(log(R_i , (2)/(3a / (4x))))) +y")
         .environment(\.mathScale, 30)
 ```
 You can customize all the other elements through two object: Style and ElementsAspect. The first allows to customize the relative distances between the various components of the equations (exponents, brackets etc..), the other allows you to completely replace some of the default graphical elements (digits, variables, texts and placeholder). Both are set using environment keys:
 
 ```swift
-    MathView(text: "x ^ 2 + cos(3*x + cos(log(R_i , (2)/(3a / (4x))))) +y")
+    QuickMathView(text: "x ^ 2 + cos(3*x + cos(log(R_i , (2)/(3a / (4x))))) +y")
         .environment(\.mathStyle, Style())
         .environment(\.mathElementsAspect, ElementsAspect())
 ```
@@ -158,4 +159,11 @@ Group {
 You could add a loop animation to it, or whatever you want.
 
 ## Graphing
-You can plot the graph of functions using the GraphShape struct, which is a SwiftUI Shape with customizable aspect. It only supports one variable, so everything that is not a keyword or a digit will be considered as an "x".
+You can plot the graph of functions using the GraphShape struct, which is a SwiftUI Shape with customizable aspect. It only supports one variable, so everything that is not a keyword or a digit will be considered as an "x". The struct evaluates the function for approximately every pixel in the view, with more calculations in the steep parts and less in the flattest parts of the function.
+I have also provided a GridShape, that as the GraphShape, supports traslation and scaling.
+Combining the Graph and the Grid, and adding some gesture and control, you can create an experience similar to the one in the demo folder. Here's how it looks:
+
+![Video](https://i.ibb.co/CzRrQXy/ezgif-com-gif-maker.gif)
+
+Support for equations with two variables (ex: "cos(x^2 + y^2) = x^y") will come in future, with support for GPU computing.
+
